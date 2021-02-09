@@ -65,3 +65,11 @@ Os branches permitem que você desenvolva recursos, corrija erros ou experimente
 ## Sobre pull requests
 
 As pull requests permitem que você informe outras pessoas sobre as alterações das quais você fez push para um branch em um repositório no GitHub. Depois que uma pull request é aberta, você pode discutir e revisar as possíveis alterações com colaboradores e adicionar commits de acompanhamento antes que as alterações sofram merge no branch base.
+
+## Sobre Issues
+
+Use os **issues** para rastrear ideias, melhorias, tarefas ou bugs para trabalhar no GitHub.
+
+Através do comentário close #x (sendo x o número da issue) no commit é possível fechar a issue caso o commit chegue na branch principal.
+
+A mesma lógica pode ser usada para abrir um pull request.
