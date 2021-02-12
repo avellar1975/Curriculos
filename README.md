@@ -182,5 +182,12 @@ exclude=.venv
 ```
 Isso vai permitir para que o flake8 não analise a pasta .venv
 
+* Para executar o Flake8 local basta digitar o comando:
+```
+flake8
+```
+
+
+
 > (integração contínua CI com o git actions, upgrade de dependencias, testes automáticos com pytest,  e pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
