@@ -150,7 +150,7 @@ requests==2.25.1
 urllib3==1.26.3
 ```
 
-- Requirements
+- **Requirements:**
 O arquivo requirements.txt serve para manter suas libs fora do controlador de versão ao mesmo tempo que permite a outros desenvolvedores recriarem o projeto com respectivas dependências.
 ```
 pip freeze > requirements.txt
@@ -159,5 +159,28 @@ pip freeze > requirements.txt
 ```
 pip install -r requirements.txt
 ```
-> (falar sobre dependencias de desenvolvimento -flake8, integração contínua CI com o git actions, upgrade de dependencias, testes automáticos com pytest,  e pipenv)
+
+## Flake8
+
+Flake8 é um projeto que combina 3 ótimas ferramentas em um só pacote:
+
+- Pep8 que verifica se o estilo do código respeita o padrão adotado pela comunidade descrito na Python Enhancement Proposal 8.
+- PyFlakes que analisa estaticamente seu código detectando inúmeros anti-patterns e erros lógicos como módulos importados que não são utilizados, uso de variáveis não declaradas, entre muitas outras coisas.
+- Codepaths que realiza a análise da complexidade ciclomática do código com base nas métricas de McCabe.
+
+* Para instalar:
+
+```
+pip install flake8
+```
+
+* Criar arquivo .flake8:
+
+```
+[flake8]
+exclude=.venv
+```
+Isso vai permitir para que o flake8 não analise a pasta .venv
+
+> (integração contínua CI com o git actions, upgrade de dependencias, testes automáticos com pytest,  e pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
