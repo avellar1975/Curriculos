@@ -136,3 +136,27 @@ deactivate
 ```
 
 ### 3.PIP
+Com o virtualenv ATIVADO instalar as bibliotecas que serão utilizadas no projeto através do comando:
+```
+pip install <nome_da_biblioteca>
+```
+- comando pip freeze permite listar todas as bibliotecas instaladas:
+```
+$ pip freeze
+certifi==2020.12.5
+chardet==4.0.0
+idna==2.10
+requests==2.25.1
+urllib3==1.26.3
+```
+
+- Requirements
+O arquivo requirements.txt serve para manter suas libs fora do controlador de versão ao mesmo tempo que permite a outros desenvolvedores recriarem o projeto com respectivas dependências.
+```
+pip freeze > requirements.txt
+```
+É possível instalar todas as bibliotecas do arquivo requirements.txt através do comando:
+```
+pip install -r requirements.txt
+```
+(falar sobre dependencias de desenvolvimento -flake8)
