@@ -159,5 +159,5 @@ pip freeze > requirements.txt
 ```
 pip install -r requirements.txt
 ```
-> (falar sobre dependencias de desenvolvimento -flake8, integração contínua CI com o gitactions, testes automáticos com pytest e pipenv)
+> (falar sobre dependencias de desenvolvimento -flake8, integração contínua CI com o git actions, upgrade de dependencias, testes automáticos com pytest,  e pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
