@@ -1,7 +1,12 @@
 # Curriculos
 Solução de Banco de Currículos
 
-## Fazendo um clone do repositório remoto na máquina local
+# Afiando o machado
+Antes de iniciar a cortar as árvores (desenvolver de fato) é preciso preparar os ambientes que vamos construir os projetos.
+
+## GIT
+
+### Fazendo um clone do repositório remoto na máquina local
 
 Há duas formas de clonar o repositório remoto na máquina local: via HTTPS ou SSH.
 
@@ -73,3 +78,61 @@ Use os **issues** para rastrear ideias, melhorias, tarefas ou bugs para trabalha
 Através do comentário close #x (sendo x o número da issue) no commit é possível fechar a issue caso o commit chegue na branch principal.
 
 A mesma lógica pode ser usada para abrir um pull request.
+
+---
+## Ambientes virtuais
+
+### 1. Pyenv
+
+O que o pyenv nos oferece:
+* Instalação do interpretador python usando o $HOME do usuário
+* Instalação de várias versões diferentes do python, cada uma com seu diretório isolado
+
+Para instalar o Pyenv:
+
+- Instalar as libs de dependência:
+```
+sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python-dev python3-dev aria2 vim libnss3-tools python3-venv liblzma-dev libpq-dev
+```
+- Instalar o pyenv:
+
+```
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+```
+
+- Editar no .bashrc:
+```
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+- Instalação de versão do python:
+```
+pyenv install <versao>
+```
+
+- Setando python global:
+```
+pyenv global <versao>
+```
+
+### 2. Virtualenv
+O virtualenv é uma ferramenta que cria um ambiente isolado de desenvolvimento Python com todas as bibliotecas e pacotes que são necessários para **um determinado projeto** sem que haja conflitos entre elas.
+
+- Dentro da pasta do projeto:
+```
+python -m venv .venv
+```
+
+- Ativar o ambiente virtual venv:
+
+```
+source .venv/bin/activate
+```
+- Para desativar:
+
+```
+deactivate
+```
+
+### 3.PIP
