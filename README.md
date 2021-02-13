@@ -116,6 +116,15 @@ pyenv install <versao>
 pyenv global <versao>
 ```
 
+- Para verificar as versões instaladas:
+
+```
+$ pyenv versions
+  system
+  2.7.18
+* 3.9.1 (set by /home/avellar/.pyenv/version)
+```
+
 ### 2. Virtualenv
 O virtualenv é uma ferramenta que cria um ambiente isolado de desenvolvimento Python com todas as bibliotecas e pacotes que são necessários para **um determinado projeto** sem que haja conflitos entre elas.
 
