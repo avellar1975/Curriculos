@@ -1,3 +1,5 @@
+![Python package](https://github.com/avellar1975/Curriculos/workflows/Python%20package/badge.svg)
+
 # Curriculos
 Solução de Banco de Currículos
 
@@ -196,7 +198,20 @@ Isso vai permitir para que o flake8 não analise a pasta .venv
 flake8
 ```
 
+## Integração Contínua com Git Actions
 
+Na opção **Actions** ao lado de *Pull requests* clique na opção *Set up this workflow* no quadro **Python Applications**
 
-> (integração contínua CI com o git actions, upgrade de dependencias, testes automáticos com pytest,  e pipenv)
+<img src="/images/git-actions.png">
+
+Com o arquivo de configuração aberto é possível alterar alguns parâmetros, por exemplo de quanto o CI será iniciado com um pull request na master ou um commit.
+
+![Python package](https://github.com/avellar1975/Curriculos/workflows/Python%20package/badge.svg)
+
+Para inserir o badge referente à atualização do CI basta copiar o código conforme figura abaixo e colar no arquivo README:
+
+<img src="/images/badges.png">
+
+- Issues:
+> (upgrade de dependencias, testes automáticos com pytest,  e pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
