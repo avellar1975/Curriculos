@@ -38,8 +38,6 @@ jobs:
     - name: Test with pytest
       run: |
         pytest tests -v --cov=funcao
-
-    - name: Codecov
     - uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
