@@ -308,6 +308,16 @@ No arquivo de configuração do CI (yml) incluir o trecho abaixo:
         pytest --cov=funcao tests -v
 ```
 
+- Acessar o site https://codecov.io/, logar com sua conta do github e adicionar seu repositório.
+- Adequar o arquivo yml com o conteúdo abaixo:
+
+```
+    - uses: codecov/codecov-action@v1
+    - name: Codecov
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+
+```
 
 - Issues:
 > (testes automáticos com pytest,  e pipenv)
