@@ -1,4 +1,6 @@
 ![Python package](https://github.com/avellar1975/Curriculos/workflows/Python%20package/badge.svg)
+[![Python 3](https://pyup.io/repos/github/avellar1975/Curriculos/python-3-shield.svg)](https://pyup.io/repos/github/avellar1975/Curriculos/)
+[![Updates](https://pyup.io/repos/github/avellar1975/Curriculos/shield.svg)](https://pyup.io/repos/github/avellar1975/Curriculos/)
 
 # Curriculos
 Solução de Banco de Currículos
@@ -211,6 +213,13 @@ Com o arquivo de configuração aberto é possível alterar alguns parâmetros, 
 Para inserir o badge referente à atualização do CI basta copiar o código conforme figura abaixo e colar no arquivo README:
 
 <img src="/images/badges.png">
+
+## Upgrade de Dependências com PyUp
+
+Acessar o site https://pyup.io/ e fazer login com a conta do github.
+Adicionar o Repositório do github no PyUp.
+Clicando em cada um dos badges é possível copiar o código para colar no seu README.
+
 
 - Issues:
 > (upgrade de dependencias, testes automáticos com pytest,  e pipenv)
