@@ -283,6 +283,9 @@ No arquivo de configuração do CI (yml) incluir o trecho abaixo:
         pytest tests -v
 ```
 
+### Cobertura de testes
+
+
 
 - Issues:
 > (testes automáticos com pytest,  e pipenv)
