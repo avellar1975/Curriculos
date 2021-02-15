@@ -37,10 +37,11 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest --cov=funcao tests -v
+        pytest tests -v --cov=funcao
 
     - uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         fail_ci_if_error: true # optional (default = false)
         verbose: true # optional (default = false)
+
