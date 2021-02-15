@@ -285,6 +285,27 @@ No arquivo de configuração do CI (yml) incluir o trecho abaixo:
 
 ### Cobertura de testes
 
+Instalar a biblioteca pytest-cov
+
+```
+$ pip install pytest-cov
+```
+
+- Para executar os testes com cobertura utilizar o comando onde myproj é o diretório dos códigos que serão testados, tests é o diretório onde estão os testes e o parâmetro -v roda o pytest em modo verbose:
+
+```
+pytest --cov=myproj tests/ -v
+```
+
+- Alterando o CI para também executar a cobertura de testes
+
+No arquivo de configuração do CI (yml) incluir o trecho abaixo:
+
+```
+    - name: Test with pytest
+      run: |
+        pytest --cov=funcao tests -v
+```
 
 
 - Issues:
