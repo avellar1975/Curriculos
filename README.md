@@ -275,6 +275,15 @@ $ pytest tests/ -v
 
 ### Configuração no CI para rodar os testes:
 
+No arquivo de configuração do CI (yml) incluir o trecho abaixo:
+
+```
+    - name: Test with pytest
+      run: |
+        pytest tests -v
+```
+
+
 - Issues:
 > (testes automáticos com pytest,  e pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
