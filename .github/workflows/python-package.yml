@@ -39,7 +39,9 @@ jobs:
       run: |
         pytest tests -v --cov=funcao
 
-    - name: Codecov
-    - uses: codecov/codecov-action@v1
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+        token: ${{ secrets.CODECOV_TOKEN }}
+        name: codecov-umbrella
+        fail_ci_if_error: true
