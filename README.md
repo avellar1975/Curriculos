@@ -6,6 +6,9 @@
 Solução de Banco de Currículos
 
 # Afiando o machado
+
+<img src="/images/machado.jpg" width="100%">
+                                          
 Antes de iniciar a cortar as árvores (desenvolver de fato) é preciso preparar os ambientes que vamos construir os projetos.
 
 ## GIT
@@ -96,12 +99,12 @@ Para instalar o Pyenv:
 
 - Instalar as libs de dependência:
 ```
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python-dev python3-dev aria2 vim libnss3-tools python3-venv liblzma-dev libpq-dev
+$ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python-dev python3-dev aria2 vim libnss3-tools python3-venv liblzma-dev libpq-dev
 ```
 - Instalar o pyenv:
 
 ```
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+$ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 ```
 
 - Editar no .bashrc:
@@ -112,12 +115,12 @@ eval "$(pyenv init -)"
 
 - Instalação de versão do python:
 ```
-pyenv install <versao>
+$ pyenv install <versao>
 ```
 
 - Setando python global:
 ```
-pyenv global <versao>
+$ pyenv global <versao>
 ```
 
 - Para verificar as versões instaladas:
@@ -134,24 +137,24 @@ O virtualenv é uma ferramenta que cria um ambiente isolado de desenvolvimento P
 
 - Dentro da pasta do projeto:
 ```
-python -m venv .venv
+$ python -m venv .venv
 ```
 
 - Ativar o ambiente virtual venv:
 
 ```
-source .venv/bin/activate
+$ source .venv/bin/activate
 ```
 - Para desativar:
 
 ```
-deactivate
+$ deactivate
 ```
 
 ### 3.PIP
 Com o virtualenv ATIVADO instalar as bibliotecas que serão utilizadas no projeto através do comando:
 ```
-pip install <nome_da_biblioteca>
+$ pip install <nome_da_biblioteca>
 ```
 - comando pip freeze permite listar todas as bibliotecas instaladas:
 ```
@@ -166,11 +169,11 @@ urllib3==1.26.3
 - **Requirements:**
 O arquivo requirements.txt serve para manter suas libs fora do controlador de versão ao mesmo tempo que permite a outros desenvolvedores recriarem o projeto com respectivas dependências.
 ```
-pip freeze > requirements.txt
+$ pip freeze > requirements.txt
 ```
 É possível instalar todas as bibliotecas do arquivo requirements.txt através do comando:
 ```
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ## Flake8
@@ -184,7 +187,7 @@ Flake8 é um projeto que combina 3 ótimas ferramentas em um só pacote:
 * Para instalar:
 
 ```
-pip install flake8
+$ pip install flake8
 ```
 
 * Criar arquivo .flake8:
@@ -197,7 +200,7 @@ Isso vai permitir para que o flake8 não analise a pasta .venv
 
 * Para executar o Flake8 local basta digitar o comando:
 ```
-flake8
+$ flake8
 ```
 
 ## Integração Contínua com Git Actions
@@ -220,7 +223,58 @@ Acessar o site https://pyup.io/ e fazer login com a conta do github.
 Adicionar o Repositório do github no PyUp.
 Clicando em cada um dos badges é possível copiar o código para colar no seu README.
 
+## Testes Automáticos
+
+* Instalar o pytest dentro da sua virtualenv:
+
+```
+$ pip install pytest
+```
+* Criar pasta <kbd>tests</kbd> dentro da pasta do projeto
+
+```
+$ mkdir tests
+```
+* Criar um módulo dentro da pasta com nome test_exemplos.py
+
+Exemplo de código de uma função (na raiz do projeto) a ser testada:
+```
+""Função para implementar um testeself.
+
+Recebe parm1 e parm2
+retorna resultado
+"""
+
+ 
+def funcao_para_testar(parm1, parm2):
+    """Retorna multiplicação de dois argumentos."""
+    return parm1 * parm2
+
+```
+
+Exemplo do conteúdo do módulo test_exemplos.py:
+
+```
+from funcao import funcao_para_testar
+
+
+def teste_basico():
+    assert funcao_para_testar(3, 5) == 15
+    
+    
+def teste_numeros_negativos():
+    assert funcao_para_testar(-3, 9) == -27
+
+```
+
+* Na raiz do projeto executar o comando (parâmetro -v é o modo verbose):
+
+```
+$ pytest tests/ -v
+```
+
+### Configuração no CI para rodar os testes:
 
 - Issues:
-> (upgrade de dependencias, testes automáticos com pytest,  e pipenv)
+> (testes automáticos com pytest,  e pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
