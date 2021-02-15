@@ -1,6 +1,7 @@
 ![Python package](https://github.com/avellar1975/Curriculos/workflows/Python%20package/badge.svg)
 [![Python 3](https://pyup.io/repos/github/avellar1975/Curriculos/python-3-shield.svg)](https://pyup.io/repos/github/avellar1975/Curriculos/)
 [![Updates](https://pyup.io/repos/github/avellar1975/Curriculos/shield.svg)](https://pyup.io/repos/github/avellar1975/Curriculos/)
+[![codecov](https://codecov.io/gh/avellar1975/Curriculos/branch/main/graph/badge.svg?token=32L3CQIY1P)](https://codecov.io/gh/avellar1975/Curriculos)
 
 # Curriculos
 Solução de Banco de Currículos
