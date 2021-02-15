@@ -319,6 +319,8 @@ No arquivo de configuração do CI (yml) incluir o trecho abaixo:
 
 ```
 
+Se precisar trabalhar com TOKEN do codecov precisa cadastrá-lo com o nome CODECOV_TOKEN no github em *Settings >> Secrets >> New repository secret*
+
 - Issues:
-> (testes automáticos com pytest,  e pipenv)
+> (pipenv)
 Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
