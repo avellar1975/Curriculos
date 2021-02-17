@@ -8,6 +8,6 @@ def teste_basico():
 def teste_numeros_negativos():
     assert funcao_para_testar(-3, 9) == -27
 
+
 def teste_funcao_nova_media():
     assert funcao_nova(1, 2, 3) == 2
-
