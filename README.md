@@ -359,7 +359,14 @@ $ source .bashrc
 
 ## Instalar o Django
 
-- Instalar o Django com o pipenv
+- Clonar o projeto pelo Git
+- Instalar o Django com o pipenv dentro da pasta do projeto
 ```
 $ pipenv install Django
+```
+
+- Instalar o flake8 como biblioteca do ambiente de desenvolvimento
+
+```
+$ pipenv install --dev flake8
 ```
