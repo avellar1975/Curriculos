@@ -359,7 +359,8 @@ $ source .bashrc
 
 ## Instalar o Django
 
-- Clonar o projeto pelo Git
+- Clonar o projeto pelo Git;
+- Se já tiver a pasta .venv criada pelo venv do python é preciso apagar a pasta para recriá-la com o pipenv;
 - Instalar o Django com o pipenv dentro da pasta do projeto
 ```
 $ pipenv install Django
