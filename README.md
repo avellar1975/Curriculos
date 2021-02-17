@@ -336,4 +336,30 @@ Através do parsing do Pipfile, a ferramenta resolve dependências do projeto (a
 ## Escolha da versão Python através do pyenv
 ```
 $ pyenv install 3.9.1
+$ pyenv global 3.9.1
+```
+
+## Mudar a configuração do Pipenv
+
+- Instalar o pipenv:
+
+```
+$ pip install pipenv
+```
+
+- Editar o .bashrc incluindo a linha abaixo. Isso vai permitir alterar o comportamento do pipenv para que a pasta .venv seja criada na pasta do projeto.
+```
+export PIPENV_VENV_IN_PROJECT=1
+```
+
+- Atualizar as variáveis de ambiente:
+```
+$ source .bashrc
+```
+
+## Instalar o Django
+
+- Instalar o Django com o pipenv
+```
+$ pipenv install Django
 ```
