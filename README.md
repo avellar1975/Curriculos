@@ -88,7 +88,7 @@ Através do comentário close #x (sendo x o número da issue) no commit é poss�
 A mesma lógica pode ser usada para abrir um pull request.
 
 ---
-## Ambientes virtuais
+## Ambientes virtuais e Pacotes
 
 ### 1. Pyenv
 
@@ -321,6 +321,19 @@ No arquivo de configuração do CI (yml) incluir o trecho abaixo:
 
 Se precisar trabalhar com TOKEN do codecov precisa cadastrá-lo com o nome CODECOV_TOKEN no github em *Settings >> Secrets >> New repository secret*
 
-- Issues:
-> (pipenv)
-Para criar CI com githup action basta configurar o **Continuous integration workflows** Django CI
+## Pipenv
+> Projeto que visa trazer o melhor de todos os mundos de embalagens para o mundo Python, utiliza: Pipfile , pip e virtualenv ;
+
+Já falamos sobre o pip e virtualenv (venv), ficou faltando a definição do Pipfile.
+
+O Pipfile é uma substituição para o arquivo requirements.txt do pip padrão existente. Ou seja o Pipenv está para o pip, assim como o Pipfile está para o requirements.
+
+Através do parsing do Pipfile, a ferramenta resolve dependências do projeto (através dos parâmetros install, uninstall ou update), exibe a árvore de dependências (através do parâmetro graph) e analisa as mesmas (através do check). Mas além de atuar como um gerenciador de pacotes, o Pipenv tem uma funcionalidade fantástica: Cria e gerencia virtualenvs de forma automática.
+
+# Início do projeto
+<img src="https://www.mattlayman.com/img/python-django.png">
+
+## Escolha da versão Python através do pyenv
+```
+$ pyenv install 3.9.1
+```
