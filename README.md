@@ -413,3 +413,14 @@ jobs:
           pipenv install --deploy --dev
     - run: pipenv run flake8
 ```
+
+## Montar a estrutura do projeto Django
+
+Dentro do ambiente virtual:
+
+```
+$ django-admin startproject curriculos .
+$ python manage.py runserver
+```
+
+Já teremos aqui o servidor Django rodando
