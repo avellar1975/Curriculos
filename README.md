@@ -459,5 +459,12 @@ $ git push heroku <branch local>:master -f
 ```
 
 Agora é só acessar a *url* do heroku para verificar a primeira versão da aplicação rodando em produção.
+> Url de produção: https://curriculosdjango.herokuapp.com/
 
 ## Deploy Automático
+- Acessar o dashboard da aplicação no heroku;
+- Na Aba Deploy, opção Connect to GitHub;
+- Conecta ao repositório da aplicação no GitHub;
+- Confirma a branch;
+- Marca a opção "Wait for CI to pass before deploy";
+- Clicar no botão "Enable Automatic Deploys"
