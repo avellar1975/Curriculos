@@ -380,3 +380,36 @@ requirements:
   - Pipfile.lock
 ```
 
+## Primeira versão do arquivo yml de CI
+
+```
+name: Django CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies with pipenv
+      run: |
+          pip install pipenv
+          pipenv install --deploy --dev
+    - run: pipenv run flake8
+```
