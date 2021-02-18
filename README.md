@@ -483,3 +483,30 @@ python ../manage.py startapp base
 (...)
   INSTALLED APPS
 - Alterar o arquivo urls.py na pasta raiz
+
+## Pytest Django
+- Instalar a biblioteca no nosso ambiente pytest-django
+
+```$ pipenv install 'pytest-django' ```
+
+- Na raiz do projeto criar o arquivo pytest.ini com o seguinte conteúdo:
+```
+[pytest]
+DJANGO_SETTINGS_MODULE = curriculos.settings
+```
+- Na pasta tests do app base criar o arquivo test_home.py com o seguinte conteúdo:
+```
+from django.test import Client
+
+def test_status_code(client:Client):
+    resp=client.get('/')
+    assert resp.status_code == 200
+```
+
+- Pra executar os testes:
+```
+$ pipenv run pytest
+```
+
+- Alterar o arquivo yml com o comando ```pipenv run pytest```
+
