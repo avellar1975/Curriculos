@@ -371,3 +371,12 @@ $ pipenv install Django
 ```
 $ pipenv install --dev flake8
 ```
+
+## Arquivo .pyup.yml
+
+```
+requirements:
+  - Pipfile
+  - Pipfile.lock
+```
+
