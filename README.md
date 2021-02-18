@@ -1,4 +1,4 @@
-![Python package](https://github.com/avellar1975/Curriculos/workflows/Python%20package/badge.svg)
+![Django CI](https://github.com/avellar1975/Curriculos/workflows/Django%20CI/badge.svg)
 [![Python 3](https://pyup.io/repos/github/avellar1975/Curriculos/python-3-shield.svg)](https://pyup.io/repos/github/avellar1975/Curriculos/)
 [![Updates](https://pyup.io/repos/github/avellar1975/Curriculos/shield.svg)](https://pyup.io/repos/github/avellar1975/Curriculos/)
 [![codecov](https://codecov.io/gh/avellar1975/Curriculos/branch/main/graph/badge.svg?token=32L3CQIY1P)](https://codecov.io/gh/avellar1975/Curriculos)
@@ -9,7 +9,7 @@ Solução de Banco de Currículos
 # Afiando o machado
 
 <img src="/images/machado.jpg" width="100%">
-                                          
+
 Antes de iniciar a cortar as árvores (desenvolver de fato) é preciso preparar os ambientes que vamos construir os projetos.
 
 ## GIT
@@ -28,7 +28,7 @@ $ git clone https://github.com/avellar1975/Curriculos.git
 
 ### 2. Para clonar via SSH:
 
-> As URLs de SSH fornecem acesso a um repositório do Git via SSH, um protocolo seguro. Para usar essas URLs, você deve gerar um par de chaves SSH no seu computador e adicionar a chave pública à sua conta de GitHub. 
+> As URLs de SSH fornecem acesso a um repositório do Git via SSH, um protocolo seguro. Para usar essas URLs, você deve gerar um par de chaves SSH no seu computador e adicionar a chave pública à sua conta de GitHub.
 
 No terminal basta digitar o comando <kbd>git clone</kbd> seguido do recurso:
 ```
@@ -64,11 +64,11 @@ Após clonar na máquina local, é possível adicionar o upstream com o comando 
 > origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
 > upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
 > upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
-  
+
 ```
-  
+
 ## Sobre branches
-  
+
 Use um branch para isolar o trabalho de desenvolvimento sem afetar outros branches no repositório. Cada repositório tem um branch padrão e pode ter vários outros branches. Você pode fazer merge de um branch em outro branch usando uma pull request.
 
 Os branches permitem que você desenvolva recursos, corrija erros ou experimente com segurança novas ideias em uma área contida do seu repositório.
@@ -246,7 +246,7 @@ Recebe parm1 e parm2
 retorna resultado
 """
 
- 
+
 def funcao_para_testar(parm1, parm2):
     """Retorna multiplicação de dois argumentos."""
     return parm1 * parm2
@@ -261,8 +261,8 @@ from funcao import funcao_para_testar
 
 def teste_basico():
     assert funcao_para_testar(3, 5) == 15
-    
-    
+
+
 def teste_numeros_negativos():
     assert funcao_para_testar(-3, 9) == -27
 
@@ -366,13 +366,13 @@ $ source .bashrc
 $ pipenv install Django
 ```
 
-- Instalar o flake8 como biblioteca do ambiente de desenvolvimento
+### Instalar o flake8 como biblioteca do ambiente de desenvolvimento
 
 ```
 $ pipenv install --dev flake8
 ```
 
-## Arquivo .pyup.yml
+## Arquivo .pyup.yml (Adequação aos arquivos Pipfile)
 
 ```
 requirements:
@@ -406,7 +406,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    
+
     - name: Install dependencies with pipenv
       run: |
           pip install pipenv
