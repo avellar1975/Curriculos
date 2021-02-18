@@ -27,8 +27,4 @@ jobs:
           pip install pipenv
           pipenv install --deploy --dev
     - run: pipenv run flake8
-    - run: pipenv run pytest --cov --cov-fail-under=100
-    
-    - name: Run Tests
-      run: |
-        python manage.py test
+    - run: pipenv run pytest
