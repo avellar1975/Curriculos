@@ -459,3 +459,5 @@ $ git push heroku <branch local>:master -f
 ```
 
 Agora é só acessar a *url* do heroku para verificar a primeira versão da aplicação rodando em produção.
+
+## Deploy Automático
