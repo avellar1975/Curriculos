@@ -380,7 +380,7 @@ requirements:
   - Pipfile.lock
 ```
 
-## Primeira versão do arquivo yml de CI
+## Primeira versão do arquivo yml de CI (GitHub Actions)
 
 ```
 name: Django CI
@@ -424,3 +424,7 @@ $ python manage.py runserver
 ```
 
 Já teremos aqui o servidor Django rodando
+
+## Configuração do Heroku
+
+Continua aqui...
