@@ -458,4 +458,4 @@ $ heroku config:set DISABLE_COLLECTSTATIC=1
 $ git push heroku <branch local>:master -f
 ```
 
-Agora é só acessar a url do heroku para verificar a primeira versão da aplicação rodando em produção.
+Agora é só acessar a *url* do heroku para verificar a primeira versão da aplicação rodando em produção.
