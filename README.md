@@ -468,3 +468,18 @@ Agora é só acessar a *url* do heroku para verificar a primeira versão da apli
 - Confirma a branch;
 - Marca a opção "Wait for CI to pass before deploy";
 - Clicar no botão "Enable Automatic Deploys"
+
+## Criação da primeira APP do Django
+
+Dentro da pasta curriculos executar o comando:
+
+```
+python ../manage.py startapp base
+```
+
+- Alterar o arquivo views.py na pasta base da app
+(...)
+- Alterar o arquivo settings.py (raiz)
+(...)
+  INSTALLED APPS
+- Alterar o arquivo urls.py na pasta raiz
