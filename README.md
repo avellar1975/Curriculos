@@ -330,6 +330,12 @@ O Pipfile é uma substituição para o arquivo requirements.txt do pip padrão e
 
 Através do parsing do Pipfile, a ferramenta resolve dependências do projeto (através dos parâmetros install, uninstall ou update), exibe a árvore de dependências (através do parâmetro graph) e analisa as mesmas (através do check). Mas além de atuar como um gerenciador de pacotes, o Pipenv tem uma funcionalidade fantástica: Cria e gerencia virtualenvs de forma automática.
 
+Para atualizar local as dependências do projeto no virtualenv basta digitar o comando abaixo:
+
+```
+$ pipenv sync -d
+```
+
 # Início do projeto
 <img src="https://www.mattlayman.com/img/python-django.png">
 
@@ -427,4 +433,29 @@ Já teremos aqui o servidor Django rodando
 
 ## Configuração do Heroku
 
-Continua aqui...
+- Para instalar o Heroku Command Line Interface (CLI)
+
+```
+$ curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+```
+
+- Alterar no arquivo settings.py o parâmetro <kbd>ALLOWED_HOSTS = ['*']</kbd>
+- Criar o arquivo Procfile na raiz do projeto com o conteúdo:
+
+```
+web: gunicorn curriculos.wsgi --log-file -
+```
+
+- Instalar a biblioteca gunicorn através do pipenv
+```
+$ pipenv install gunicorn
+```
+
+- Criando uma aplicação no heroku
+```
+$ heroku apps:create curriculosdjango
+$ heroku config:set DISABLE_COLLECTSTATIC=1
+$ git push heroku <branch local>:master -f
+```
+
+Agora é só acessar a url do heroku para verificar a primeira versão da aplicação rodando em produção.
