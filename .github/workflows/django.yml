@@ -27,4 +27,4 @@ jobs:
           pip install pipenv
           pipenv install --deploy --dev
     - run: pipenv run flake8
-    - run: pipenv run pytest
+
