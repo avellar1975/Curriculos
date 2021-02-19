@@ -478,11 +478,40 @@ python ../manage.py startapp base
 ```
 
 - Alterar o arquivo views.py na pasta base da app
-(...)
+```
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse('Olá Django')
+```
 - Alterar o arquivo settings.py (raiz)
-(...)
-  INSTALLED APPS
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    # Minhas APPS
+    'curriculos.base',
+]
+```
+
 - Alterar o arquivo urls.py na pasta raiz
+
+```
+from curriculos.base.views import home
+from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', home),
+]
+```
+
 
 ## Pytest Django
 - Instalar a biblioteca no nosso ambiente pytest-django
@@ -509,4 +538,3 @@ $ pipenv run pytest
 ```
 
 - Alterar o arquivo yml com o comando ```pipenv run pytest```
-
