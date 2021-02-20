@@ -561,5 +561,3 @@ pipenv run pytest -v --cov=curriculos
 - name: Codecov - Publicacao de Cobetura de Código
   with:
     token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-
-```
