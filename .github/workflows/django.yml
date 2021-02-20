@@ -32,7 +32,6 @@ jobs:
       run: |
           pipenv run pytest -v --cov=curriculos
 
-
     - uses: codecov/codecov-action@v1
     - name: Codecov - Publicacao de Cobetura de Código
       with:
