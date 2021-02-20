@@ -30,10 +30,9 @@ jobs:
 
     - name: Execução dos testes
       run: |
-          pipenv run pytest -v --cov=curriculos
-
+        pipenv run pytest -v --cov=curriculos
     - name: Posting Coverage
-        env:
-          super_secret: ${{ secrets.CODECOV_TOKEN }}
-        run: |
-          pipenv run codecov
+      env:
+        super_secret: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        pipenv run codecov
