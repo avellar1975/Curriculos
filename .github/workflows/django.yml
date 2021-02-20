@@ -32,9 +32,8 @@ jobs:
       run: |
           pipenv run pytest -v --cov=curriculos
 
-    - uses: actions/checkout@master
     - uses: codecov/codecov-action@v1
+    - name: Upload do Codecov
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         fail_ci_if_error: true # optional (default = false)
-        verbose: true # optional (default = false)
