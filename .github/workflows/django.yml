@@ -32,7 +32,8 @@ jobs:
       run: |
           pipenv run pytest -v --cov=curriculos
 
-
-    - uses: codecov/codecov-action@v1
-    - name: Codecov - Publicacao de Cobetura de Código
-    - run: pipenv run codecov
+    - name: Posting Coverage
+        env:
+          super_secret: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          pipenv run codecov
