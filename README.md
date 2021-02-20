@@ -562,5 +562,4 @@ pipenv run pytest -v --cov=curriculos
   with:
     token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
     
-
 ```
