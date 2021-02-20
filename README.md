@@ -538,3 +538,16 @@ $ pipenv run pytest -v
 ```
 
 - Alterar o arquivo yml com o comando ```pipenv run pytest -v```
+
+## Cobertura de testes
+
+- Instalação das bibliotecas
+```
+$ pipenv install -d 'pytest-cov' codecov
+```
+Após instalação é possível executar o comando abaixo:
+```
+pipenv run pytest -v --cov=curriculos
+
+```
+- Substituir alinha do arquivo yml de teste incluindo a Cobertura

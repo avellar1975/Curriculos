@@ -30,4 +30,4 @@ jobs:
 
     - name: Execução dos testes
       run: |
-          pipenv run pytest
+          pipenv run pytest -v --cov=curriculos
