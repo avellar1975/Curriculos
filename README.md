@@ -551,3 +551,15 @@ pipenv run pytest -v --cov=curriculos
 
 ```
 - Substituir alinha do arquivo yml de teste incluindo a Cobertura
+```
+- name: Execução dos testes
+  run: |
+      pipenv run pytest -v --cov=curriculos
+
+
+- uses: codecov/codecov-action@v1
+- name: Codecov - Publicacao de Cobetura de Código
+  with:
+    token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+
+```
