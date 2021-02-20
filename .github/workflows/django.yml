@@ -32,14 +32,9 @@ jobs:
       run: |
           pipenv run pytest -v --cov=curriculos
 
-    - name: Upload coverage
-      if: success()
-      run: |
-        curl -s https://codecov.io/bash -o codecov.bash
-        ./codecov.bash
-        # OR
-        # curl -s https://codecov.io/bash | bash
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        CODECOV_NAME: ${{ runner.os }} Python ${{ matrix.python-version }}
-      shell: bash
+    steps:
+      # (Other steps go here)
+      - name: "Upload coverage to Codecov"
+        uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
