@@ -29,10 +29,9 @@ jobs:
     - run: pipenv run flake8
 
     - name: Execução dos testes
-      run: |
-        pipenv run pytest -v --cov=curriculos
+      run: pipenv run pytest -v --cov=curriculos
+      
     - name: Posting Coverage
       env:
         super_secret: ${{ secrets.CODECOV_TOKEN }}
-      run: |
-        pipenv run codecov
+      run: pipenv run codecov
