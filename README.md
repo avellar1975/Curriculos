@@ -560,3 +560,46 @@ pipenv run pytest -v --cov=curriculos
     super_secret: ${{ secrets.CODECOV_TOKEN }}
   run: pipenv run codecov
 ```
+
+## Python Decouple
+
+Configurações que permitem trabalharmos com valores de variáveis de ambiente distintas para cada ambiente e não expor informações de segurança, como por exemplo a SECRET_KEY, permite desta forma desacoplar as configurações de instância da aplicação.
+
+- Instalar a biblioteca
+```
+$ pipenv install python-decouple
+```
+
+- Importar a função config da biblioteca no arquivo settings.py
+```
+from decouple import config
+```
+
+- Criar o arquivo .env no diretório raiz, ele será ignorado no controle do .gitinore, e editar o arquivo settings.py nas seguintes linhas:
+```
+SECRET_KEY = config('SECRET_KEY')
+
+DEBUG = config('DEBUG', cast=bool)
+```
+No arquivo .env deverá estar definidas as variáveis de ambiente:
+DEBUG = True
+SECRET_KEY = ************************************
+Não utilizar aspas no arquivo .env
+
+- Setar o valor da variáveis de ambiente de produção (heroku), uma vez que não passaremos mais este valor no controlador de versão git:
+
+```
+$ heroku config:set DEBUG=False
+$ heroku config:set SECRET_KEY=************************************
+```
+
+- Criar uma pasta com nome <kbd>contrib</kbd> na raiz do projeto
+
+- Editar o arquivo env-sample com instruções ao desenvolvedor, por exemplo <kdb>SECRET_KEY = digitar aqui a chave secreta</kbd>
+
+- Inserir no arquivo de CI django.yml as seguintes linhas antes das instalações de dependencias:
+
+```
+- name: Copiar template de configuração do decouple
+  run: cp contrib/env-sample .env
+```
