@@ -29,14 +29,16 @@ jobs:
     - name: Copiar template de configuração do decouple
       run: cp contrib/env-sample .env
 
-    - name: Criando o banco para teste
-      run: psql -c "CREATE DATABASE testdb;" -U postgres
-
     - name: Install dependencies with pipenv
       run: |
           pip install pipenv
           pipenv install --deploy --dev
     - run: pipenv run flake8
+
+
+    - name: Criando o banco para teste
+      run: psql -c "CREATE DATABASE testdb;" -U postgres
+
 
     - name: Execução dos testes
       run: pipenv run pytest -v --cov=curriculos
