@@ -663,3 +663,7 @@ DATABASES = {
 
 
 ```
+
+## Testando Postgresql no CI
+
+- Instalar a biblioteca psycopg2-binary
