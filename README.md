@@ -603,3 +603,27 @@ $ heroku config:set SECRET_KEY=************************************
 - name: Copiar template de configuração do decouple
   run: cp contrib/env-sample .env
 ```
+
+
+## Domínio customizado e ALLOWED_HOSTS
+
+- Como configurar um domínio
+https://devcenter.heroku.com/articles/custom-domains
+
+- No arquivo settings.py:
+
+```
+from decouple import config, Csv
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+```
+
+- No arquivo .env e contrib/env-sample:
+```
+ALLOWED_HOSTS=localhost,127.0.0.1
+```
+
+- Comando heroku:
+```
+$ heroku config:set ALLOWED_HOSTS='seudominio.com, subdominio.herokuapp.com'
+```
