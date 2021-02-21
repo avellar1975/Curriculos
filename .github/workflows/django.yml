@@ -52,7 +52,7 @@ jobs:
 
 
     - name: Criando o banco para teste
-      run: psql -c "CREATE DATABASE testdb;" -U postgres
+      run: psql -c "CREATE DATABASE testdb;" -U postgres -p 5432
 
 
     - name: Execução dos testes
