@@ -627,3 +627,39 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 ```
 $ heroku config:set ALLOWED_HOSTS='seudominio.com, subdominio.herokuapp.com'
 ```
+
+## Configurando o Banco de Dados
+
+- Instalar a bibliotecas
+
+```
+$ pipenv install dj-database-url
+
+```
+
+- Atualizar o settings.py
+
+```
+import os
+from pathlib import Path
+from decouple import config, Csv
+from functools import partial
+import dj_database_url
+
+(...)
+
+# Database
+# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
+default_db_url = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+parse_database = partial(dj_database_url.parse, conn_max_age=600)
+
+DATABASES = {
+    'default': config('DATABASE_URL',
+                      default=default_db_url,
+                      cast=parse_database)
+                      }
+
+
+```
