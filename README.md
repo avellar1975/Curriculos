@@ -667,3 +667,34 @@ DATABASES = {
 ## Testando Postgresql no CI
 
 - Instalar a biblioteca psycopg2-binary
+
+
+```
+$ pipenv install psycopg2-binary
+
+```
+
+- Configurar o arquivo yml do CI
+
+```
+# Service containers to run with `runner-job`
+services:
+  # Label used to access the service container
+  postgres:
+    # Docker Hub image
+    image: postgres:13.2
+    # Provide the password for postgres
+    env:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: localhost
+      POSTGRES_DB: testdb
+    # Set health checks to wait until postgres has started
+    options: >-
+      --health-cmd pg_isready
+      --health-interval 10s
+      --health-timeout 5s
+      --health-retries 5
+    ports:
+      # Maps tcp port 5432 on service container to the host
+      - 5432:5432
+```
