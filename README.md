@@ -698,3 +698,109 @@ services:
       # Maps tcp port 5432 on service container to the host
       - 5432:5432
 ```
+
+## Lingua e Fuso Horário
+
+- Arquivo settings.py
+
+```
+LANGUAGE_CODE = 'pt-br'
+
+TIME_ZONE = 'America/Sao_Paulo'
+```
+
+## Arquivos Estáticos
+
+- Alterar o arquivo de settings.py
+```
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+```
+
+- Executar o comando:
+
+```
+$ python manage.py collectstatic
+```
+
+### Usuário na AWS
+
+- No AWS Management Console acessar o serviço IAM
+- Em Usuários clicar em adicionar Usuário
+- Tipo de acesso: "Acesso programático"
+- Na opção "Anexar políticas existentes e forma direta" selecionar AmazonS3FullAccess
+- Copiar o ID da chave de acesso e a chave de acesso guardando nas variáveis
+
+### Criar e configurar a CDN da Amazon (S3)
+
+- Na opção S3 da Amazon criar um bucket
+- Acessar o AWS Policy Generator
+- No campo principal inserir o ARN do usuário IAM
+- No campo Amazon Resource Name (ARN) inserir o ARN do S3
+- Inserir a política criada no Bucket e finalizar a criação
+- No  arquivo .env inserir a linha <kbd>AWS_STORAGE_BUCKET_NAME=nomedobucket</kbd>
+
+### Configurar a Lib django_s3_folder_storage
+
+```
+$ pipenv install django-s3-folder-storage
+```
+
+- Configurar o arquivo Settings
+```
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+
+# STORAGE AWS CONFIGS
+if AWS_ACCESS_KEY_ID:
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
+    AWS_PRELOAD_METADATA = True
+    AWS_AUTO_CREATE_BUCKET = False
+    AWS_QUERYSTRING_AUTH = True
+    AWS_S3_CUSTOM_DOMAIN = None
+    AWS_DEFAULT_ACL = 'private'
+
+    # static assets
+    STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
+    STATIC_S3_PATH = 'static'
+    STATIC_ROOT = f'/{STATIC_S3_PATH}/'
+    STATIC_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{STATIC_S3_PATH}/'
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+
+    # Upload Media Folder
+    DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
+    DEFAULT_S3_PATH = 'media'
+    MEDIA_ROOT = f'/{DEFAULT_S3_PATH}/'
+    MEDIA_URL = f'//s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/{{DEFAULT_S3_PATH}/'
+
+    INSTALLED_APPS.append('s3_folder_storage')
+    INSTALLED_APPS.append('storages')
+```
+
+- Executar o comando (como pipenv shell ativado):
+```
+python manage.py collectstatic --no-input
+```
+
+- Inserir no arquivo contrib/env-sample
+```
+AWS_SECRET_ACCESS_KEY=
+AWS_ACCESS_KEY_ID=
+AWS_STORAGE_BUCKET_NAME=
+```
+### Enviar para o servidor heroku as variáveis da AWS
+
+```
+$ heroku config:set AWS_SECRET_ACCESS_KEY=***********
+$ heroku config:set AWS_ACCESS_KEY_ID=***********
+$ heroku config:set AWS_STORAGE_BUCKET_NAME=***********
+$ heroku config:unset DISABLE_COLLECTSTATIC
+
+```
