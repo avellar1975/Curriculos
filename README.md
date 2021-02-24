@@ -804,3 +804,50 @@ $ heroku config:set AWS_STORAGE_BUCKET_NAME=***********
 $ heroku config:unset DISABLE_COLLECTSTATIC
 
 ```
+
+- Instalar a biblioteca Collectfast
+```
+$ pipenv install collectfast
+```
+
+- Alterar o arquivo settings.py para criar a variável COLLECTFAST_ENABLE
+```
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'collectfast',
+    # Minhas APPS
+    'curriculos.base',
+]
+
+(...)
+
+COLLECTFAST_ENABLE = False
+
+(...)
+
+if AWS_ACCESS_KEY_ID:
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age-86400', }
+    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age-86400', }
+    AWS_PRELOAD_METADATA = True
+    AWS_PRELOAD_METADATA = True
+    AWS_AUTO_CREATE_BUCKET = False
+    AWS_AUTO_CREATE_BUCKET = False
+    AWS_QUERYSTRING_AUTH = True
+    AWS_QUERYSTRING_AUTH = True
+    AWS_S3_CUSTOM_DOMAIN = False
+    AWS_S3_CUSTOM_DOMAIN = False
+
+    COLLECTFAST_ENABLE = True
+    AWS_DEFAULT_ACL = 'private'
+    AWS_DEFAULT_ACL = 'private'
+
+```
