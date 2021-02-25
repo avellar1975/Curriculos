@@ -851,3 +851,9 @@ if AWS_ACCESS_KEY_ID:
     AWS_DEFAULT_ACL = 'private'
 
 ```
+
+## Customização do Model User do Django
+
+Uma das dúvidas mais comum de quem usa Django é Como criar campo(s) na tabela de usuário que o Django provê por default?
+Mais do quê isso. Como me se logar informando email em vez de username?
+Enfim, como customizar sem estragar o que o Django já nos dá de brinde, como por exemplo o sistema de autenticação.
