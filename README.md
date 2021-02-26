@@ -857,3 +857,13 @@ if AWS_ACCESS_KEY_ID:
 Uma das dúvidas mais comum de quem usa Django é Como criar campo(s) na tabela de usuário que o Django provê por default?
 Mais do quê isso. Como me se logar informando email em vez de username?
 Enfim, como customizar sem estragar o que o Django já nos dá de brinde, como por exemplo o sistema de autenticação.
+
+- Criar o arquivo base>models.py
+- Configurar o settings.py com a variável AUTH_USER_MODEL = 'base.User'
+- Executar os comandos:
+```
+$ python manage.py makemigrations base
+$ python manage.py migrate
+$ python manage.py createsuperuser
+
+```
