@@ -1,2 +1,3 @@
 ignore:
   - "curriculos/base/migrations/*" # ignore folders and all its contents
+  - "curriculos/base/models.py"
