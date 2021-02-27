@@ -561,6 +561,36 @@ pipenv run pytest -v --cov=curriculos
   run: pipenv run codecov
 ```
 
+### codecov.yml
+
+Na documentação oficial do **codecov** é apresentado como ignorarmos arquivos e pastas na cobertura dos testes, criando um arquivo <kbd>codecov.yml</kbd>
+
+Pois não faz sentido medirmos se estamos fazendo testes nas pastas e arquivos padrões do Django, por exemplo.
+
+*You can use the top-level `ignore:` key to tell Codecov to ignore certain paths.*
+
+*Add a list of paths (folders or file names) to your codecov.yml file under the ignore key to exclude files from being collected by Codecov. Ignored files will be skipped during processing.*
+
+*codecov.yml*
+
+```
+ignore:
+  - "path/to/folder"  # ignore folders and all its contents
+  - "test_*.rb"       # wildcards accepted
+  - "**/*.py"         # glob accepted
+```
+
+Veja como ficou meu arquivo para não varrer por exemplo as migrations e arquivo models.py:
+
+```
+ignore:
+  - "minha_app/base/migrations/*" # ignore folders and all its contents
+  - "minha_app/base/models.py"
+```
+
+Referência: https://docs.codecov.io/docs/ignoring-paths
+
+
 ## Python Decouple
 
 Configurações que permitem trabalharmos com valores de variáveis de ambiente distintas para cada ambiente e não expor informações de segurança, como por exemplo a SECRET_KEY, permite desta forma desacoplar as configurações de instância da aplicação.
@@ -858,7 +888,7 @@ Uma das dúvidas mais comum de quem usa Django é Como criar campo(s) na tabela 
 Mais do quê isso. Como me se logar informando email em vez de username?
 Enfim, como customizar sem estragar o que o Django já nos dá de brinde, como por exemplo o sistema de autenticação.
 
-- Criar o arquivo base>models.py
+- Criar o arquivo base>models.py (Exemplo customizado no repositório)
 - Configurar o settings.py com a variável AUTH_USER_MODEL = 'base.User'
 - Executar os comandos:
 ```
