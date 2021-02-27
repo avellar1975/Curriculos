@@ -776,6 +776,12 @@ $ python manage.py collectstatic
 - Inserir a política criada no Bucket e finalizar a criação
 - No  arquivo .env inserir a linha <kbd>AWS_STORAGE_BUCKET_NAME=nomedobucket</kbd>
 
+- Acessar a sua pasta site da Amazon S3 em Buckets entre no seu projeto va no campo Permissões torne sua pasta publica em Bloquear acesso público (configurações do bucket)
+
+- Ainda no buckets vá no campo Objeto assinale a pasta static/ depois clique ações e tornar público
+
+
+
 ### Configurar a Lib django_s3_folder_storage
 
 ```
