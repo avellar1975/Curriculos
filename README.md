@@ -903,3 +903,6 @@ $ python manage.py migrate
 $ python manage.py createsuperuser
 
 ```
+
+## Administração de Usuários
+- Criar o arquivo ../base/admin.py (já está customizado no repositório)
