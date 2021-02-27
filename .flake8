@@ -1,2 +1,2 @@
 [flake8]
-exclude=.venv, ./curriculos/settings.py
+exclude=.venv, ./curriculos/settings.py, ./curriculos/base/migrations/
