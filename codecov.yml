@@ -3,3 +3,4 @@ ignore:
   - "curriculos/base/models.py"
   - "curriculos/base/asgi.py"
   - "curriculos/base/admin.py"
+  - "curriculos/base/settings.py"
