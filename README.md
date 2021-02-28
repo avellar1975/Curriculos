@@ -832,6 +832,8 @@ AWS_SECRET_ACCESS_KEY=
 AWS_ACCESS_KEY_ID=
 AWS_STORAGE_BUCKET_NAME=
 ```
+
+> Verificar como ficou o arquivo final do settings: https://github.com/avellar1975/Curriculos/blob/main/curriculos/settings.py
 ### Enviar para o servidor heroku as variáveis da AWS
 
 ```
