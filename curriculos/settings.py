@@ -139,7 +139,7 @@ AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 COLLECTFAST_ENABLE = False
 
 # STORAGE AWS CONFIGS
-if AWS_ACCESS_KEY_ID: # pragma: no cover
+if AWS_ACCESS_KEY_ID:  # pragma: no cover
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
@@ -149,6 +149,8 @@ if AWS_ACCESS_KEY_ID: # pragma: no cover
     AWS_S3_CUSTOM_DOMAIN = None
     AWS_DEFAULT_ACL = 'private'
     COLLECTFAST_ENABLE = True
+    AWS_DEFAULT_ACL = 'private'
+    AWS_DEFAULT_ACL = 'private'
 
     # static assets
     STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
