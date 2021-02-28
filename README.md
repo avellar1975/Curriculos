@@ -906,3 +906,15 @@ $ python manage.py createsuperuser
 
 ## Administração de Usuários
 - Criar o arquivo ../base/admin.py (já está customizado no repositório)
+
+
+## Aplicando Migrações no Heroku
+- Inserir na primeira linha do arquivo Procfile:
+```
+release: python manage.py migrate --noinput
+```
+
+- Após fazer o deploy no servidor heroku executar o comando:
+```
+$ heroku run python manage.py createsuperuser
+```
