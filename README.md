@@ -928,3 +928,85 @@ Instalar a biblioteca através do comando:
 ```
 $ pipenv install django-debug-toolbar
 ```
+
+- No arquivo settings.py
+```
+INTERNAL_IPS = config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
+
+if DEBUG:
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+```
+
+- No arquivo urls.py
+
+```    
+from django.conf import settings
+from django.urls import include, path
+
+(...)
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns.append(
+        path('__debug__/', include(debug_toolbar.urls))
+    )
+```
+
+- Acrescentar no arquivo contrib/env-sample
+```
+INTERNAL_IPS=127.0.0.1
+```
+
+- Alterar o arquivo views.py para:
+```
+from django.http import HttpResponse
+
+
+def home(requests):
+    return HttpResponse('
+      <!DOCTYPE html>
+      <html lang="pt-br" dir="ltr">
+        <head>
+          <meta charset="utf-8">
+          <title>Django</title>
+        </head>
+        <body>
+    
+        </body>
+    </html>    
+      ')
+```
+
+## Monitorando Erros com Sentry
+> Sentry, plataforma para monitoramento de erros.
+- Se cadastrar no site http://sentry.io
+- Adicionar um novo projeto do tipo Django
+- Instalar a biblioteca sentry-sdk
+```
+pipenv install --upgrade sentry-sdk
+```
+- Alterar o settings.py
+```
+SENTRY_DSN = config('SENTRY_DSN', default=None)
+
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+if SENTRY_DSN:
+  sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True)
+```
+- Incluir variável no .env
+```
+SENTRY_DSN="url_do_dsn"
+```
+- Adequar o arquivo contrib/env-sample
+<kbd>SENTRY_DSN=</kbd>
+
+- Configurar no heroku
+```
+heroku config:set SENTRY_DSN=<dsn_do_seu_projeto_no_sentry>
+```
