@@ -921,3 +921,10 @@ release: python manage.py migrate --noinput
 ```
 $ heroku run python manage.py createsuperuser
 ```
+
+## Django Debug Toolbar
+
+Instalar a biblioteca através do comando:
+```
+$ pipenv install django-debug-toolbar
+```
