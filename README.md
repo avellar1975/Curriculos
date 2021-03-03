@@ -921,6 +921,16 @@ release: python manage.py migrate --noinput
 ```
 $ heroku run python manage.py createsuperuser
 ```
+## Backup do Postgresql
+
+- Agendar o backup através do seguinte comando:
+```
+$ heroku pg:backups:schedule DATABASE_URL --at '02:00 America/Sao_Paulo'
+```
+- Para fazer o download do último backup:
+```
+$ heroku pg:backups:download
+```
 
 ## Django Debug Toolbar
 
@@ -973,7 +983,7 @@ def home(requests):
           <title>Django</title>
         </head>
         <body>
-    
+
         </body>
     </html>    
       ')

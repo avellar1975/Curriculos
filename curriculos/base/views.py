@@ -1,5 +1,5 @@
 from django.http import HttpResponse
 
 
-def home(request):
-    return HttpResponse('Olá Django!')
+def home(requests):
+    return HttpResponse('<html><body>Olá Django</body></html>')
