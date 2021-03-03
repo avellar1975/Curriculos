@@ -995,7 +995,7 @@ def home(requests):
 - Adicionar um novo projeto do tipo Django
 - Instalar a biblioteca sentry-sdk
 ```
-pipenv install --upgrade sentry-sdk
+pipenv install sentry-sdk
 ```
 - Alterar o settings.py
 ```
