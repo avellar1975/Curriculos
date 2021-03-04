@@ -85,6 +85,7 @@ INTERNAL_IPS = config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
 if DEBUG:
     INSTALLED_APPS.append('debug_toolbar')
     MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+    INTERNAL_IPS = ['127.0.0.1']
 
 
 # Database
@@ -156,9 +157,9 @@ if AWS_ACCESS_KEY_ID:  # pragma: no cover
     AWS_AUTO_CREATE_BUCKET = False
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
-
-    COLLECTFAST_STRATEGY = 'collectfast.strategies.boto3.Boto3Strategy'
     COLLECTFAST_ENABLE = True
+    COLLECTFAST_STRATEGY = 'collectfast.strategies.boto3.Boto3Strategy'
+
     AWS_DEFAULT_ACL = 'private'
 
     # static assets
