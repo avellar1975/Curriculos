@@ -1020,3 +1020,19 @@ SENTRY_DSN="url_do_dsn"
 ```
 heroku config:set SENTRY_DSN=<dsn_do_seu_projeto_no_sentry>
 ```
+---
+
+## Criação dos Arquivos Estáticos através do Bootstrap
+
+- Escolher o layout no site [layoutit.com](https://www.layoutit.com)
+- Baixar o projeto e salvar a pasta src no diretório minha_app/base/, alterando
+o nome do diretório para static
+- Dentro da pasta base criar os diretórios templates/base
+- Copiar o arquivo index.html para pastas templates/base com o nome home.html
+
+<img src="/images/estrutura_01.png" width="100%">
+
+- Inserir a template tag do Django no início do arquivo hoje e adequar os links
+para os arquivos estáticos conforme imagem abaixo:
+
+<img src="/images/estrutura_02.png" width="100%">
