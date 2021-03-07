@@ -99,6 +99,7 @@ O que o pyenv nos oferece:
 Para instalar o Pyenv:
 
 - Instalar as libs de dependência:
+
 ```
 $ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python-dev python3-dev aria2 vim libnss3-tools python3-venv liblzma-dev libpq-dev
 ```
@@ -109,17 +110,20 @@ $ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installe
 ```
 
 - Editar no .bashrc:
+
 ```
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 ```
 
 - Instalação de versão do python:
+
 ```
 $ pyenv install <versao>
 ```
 
 - Setando python global:
+
 ```
 $ pyenv global <versao>
 ```
@@ -137,6 +141,7 @@ $ pyenv versions
 O virtualenv é uma ferramenta que cria um ambiente isolado de desenvolvimento Python com todas as bibliotecas e pacotes que são necessários para **um determinado projeto** sem que haja conflitos entre elas.
 
 - Dentro da pasta do projeto:
+
 ```
 $ python -m venv .venv
 ```
@@ -158,6 +163,7 @@ Com o virtualenv ATIVADO instalar as bibliotecas que serão utilizadas no projet
 $ pip install <nome_da_biblioteca>
 ```
 - comando pip freeze permite listar todas as bibliotecas instaladas:
+
 ```
 $ pip freeze
 certifi==2020.12.5
@@ -169,6 +175,7 @@ urllib3==1.26.3
 
 - **Requirements:**
 O arquivo requirements.txt serve para manter suas libs fora do controlador de versão ao mesmo tempo que permite a outros desenvolvedores recriarem o projeto com respectivas dependências.
+
 ```
 $ pip freeze > requirements.txt
 ```
@@ -200,6 +207,7 @@ exclude=.venv
 Isso vai permitir para que o flake8 não analise a pasta .venv
 
 * Para executar o Flake8 local basta digitar o comando:
+
 ```
 $ flake8
 ```
@@ -354,11 +362,13 @@ $ pip install pipenv
 ```
 
 - Editar o .bashrc incluindo a linha abaixo. Isso vai permitir alterar o comportamento do pipenv para que a pasta .venv seja criada na pasta do projeto.
+
 ```
 export PIPENV_VENV_IN_PROJECT=1
 ```
 
 - Atualizar as variáveis de ambiente:
+
 ```
 $ source .bashrc
 ```
@@ -367,7 +377,8 @@ $ source .bashrc
 
 - Clonar o projeto pelo Git;
 - Se já tiver a pasta .venv criada pelo venv do python é preciso apagar a pasta para recriá-la com o pipenv;
-- Instalar o Django com o pipenv dentro da pasta do projeto
+- Instalar o Django com o pipenv dentro da pasta do projeto:
+
 ```
 $ pipenv install Django
 ```
@@ -447,11 +458,13 @@ web: gunicorn curriculos.wsgi --log-file -
 ```
 
 - Instalar a biblioteca gunicorn através do pipenv
+
 ```
 $ pipenv install gunicorn
 ```
 
 - Criando uma aplicação no heroku
+
 ```
 $ heroku apps:create curriculosdjango
 $ heroku config:set DISABLE_COLLECTSTATIC=1
@@ -478,14 +491,16 @@ python ../manage.py startapp base
 ```
 
 - Alterar o arquivo views.py na pasta base da app
+
 ```
 from django.http import HttpResponse
-
 
 def home(request):
     return HttpResponse('Olá Django')
 ```
+
 - Alterar o arquivo settings.py (raiz)
+
 ```
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -519,20 +534,24 @@ urlpatterns = [
 ```$ pipenv install -d 'pytest-django' ```
 
 - Na raiz do projeto criar o arquivo pytest.ini com o seguinte conteúdo:
+
 ```
 [pytest]
 DJANGO_SETTINGS_MODULE = curriculos.settings
 ```
 - Criar pasta tests dentro da pasta do app base e criar o arquivo test_home.py com o seguinte conteúdo:
+
 ```
 from django.test import Client
 
 def test_status_code(client: Client):
     resp = client.get('/')
     assert resp.status_code == 200
+
 ```
 
 - Pra executar os testes:
+
 ```
 $ pipenv run pytest -v
 ```
@@ -542,6 +561,7 @@ $ pipenv run pytest -v
 ## Cobertura de testes
 
 - Instalação das bibliotecas
+
 ```
 $ pipenv install -d 'pytest-cov' codecov
 ```
@@ -550,7 +570,8 @@ Após instalação é possível executar o comando abaixo:
 pipenv run pytest -v --cov=curriculos
 
 ```
-- Substituir alinha do arquivo yml de teste incluindo a Cobertura
+- Substituir a linha do arquivo yml de teste incluindo a Cobertura
+
 ```
 - name: Execução dos testes
   run: pipenv run pytest -v --cov=curriculos
@@ -596,16 +617,19 @@ Referência: https://docs.codecov.io/docs/ignoring-paths
 Configurações que permitem trabalharmos com valores de variáveis de ambiente distintas para cada ambiente e não expor informações de segurança, como por exemplo a SECRET_KEY, permite desta forma desacoplar as configurações de instância da aplicação.
 
 - Instalar a biblioteca
+
 ```
 $ pipenv install python-decouple
 ```
 
 - Importar a função config da biblioteca no arquivo settings.py
+
 ```
 from decouple import config
 ```
 
 - Criar o arquivo .env no diretório raiz, ele será ignorado no controle do .gitinore, e editar o arquivo settings.py nas seguintes linhas:
+
 ```
 SECRET_KEY = config('SECRET_KEY')
 
@@ -649,11 +673,13 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 ```
 
 - No arquivo .env e contrib/env-sample:
+
 ```
 ALLOWED_HOSTS=localhost,127.0.0.1
 ```
 
 - Comando heroku:
+
 ```
 $ heroku config:set ALLOWED_HOSTS='seudominio.com, subdominio.herokuapp.com'
 ```
@@ -742,6 +768,7 @@ TIME_ZONE = 'America/Sao_Paulo'
 ## Arquivos Estáticos
 
 - Alterar o arquivo de settings.py
+
 ```
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -789,6 +816,7 @@ $ pipenv install django-s3-folder-storage
 ```
 
 - Configurar o arquivo Settings
+
 ```
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
@@ -822,11 +850,13 @@ if AWS_ACCESS_KEY_ID:
 ```
 
 - Executar o comando (como pipenv shell ativado):
+
 ```
 python manage.py collectstatic --no-input
 ```
 
 - Inserir no arquivo contrib/env-sample
+
 ```
 AWS_SECRET_ACCESS_KEY=
 AWS_ACCESS_KEY_ID=
@@ -845,11 +875,13 @@ $ heroku config:unset DISABLE_COLLECTSTATIC
 ```
 
 - Instalar a biblioteca Collectfast
+
 ```
 $ pipenv install collectfast
 ```
 
 - Alterar o arquivo settings.py para criar a variável COLLECTFAST_ENABLE
+
 ```
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -900,6 +932,7 @@ Enfim, como customizar sem estragar o que o Django já nos dá de brinde, como p
 - Criar o arquivo base>models.py (Exemplo customizado no repositório)
 - Configurar o settings.py com a variável AUTH_USER_MODEL = 'base.User'
 - Executar os comandos:
+
 ```
 $ python manage.py makemigrations base
 $ python manage.py migrate
@@ -913,21 +946,25 @@ $ python manage.py createsuperuser
 
 ## Aplicando Migrações no Heroku
 - Inserir na primeira linha do arquivo Procfile:
+
 ```
 release: python manage.py migrate --noinput
 ```
 
 - Após fazer o deploy no servidor heroku executar o comando:
+
 ```
 $ heroku run python manage.py createsuperuser
 ```
 ## Backup do Postgresql
 
 - Agendar o backup através do seguinte comando:
+
 ```
 $ heroku pg:backups:schedule DATABASE_URL --at '02:00 America/Sao_Paulo'
 ```
 - Para fazer o download do último backup:
+
 ```
 $ heroku pg:backups:download
 ```
@@ -940,6 +977,7 @@ $ pipenv install django-debug-toolbar
 ```
 
 - No arquivo settings.py
+
 ```
 INTERNAL_IPS = config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
 
@@ -965,11 +1003,13 @@ if settings.DEBUG:
 ```
 
 - Acrescentar no arquivo contrib/env-sample
+
 ```
 INTERNAL_IPS=127.0.0.1
 ```
 
 - Alterar o arquivo views.py para:
+
 ```
 from django.http import HttpResponse
 
@@ -990,14 +1030,18 @@ def home(requests):
 ```
 
 ## Monitorando Erros com Sentry
+
 > Sentry, plataforma para monitoramento de erros.
+
 - Se cadastrar no site http://sentry.io
 - Adicionar um novo projeto do tipo Django
 - Instalar a biblioteca sentry-sdk
+
 ```
 pipenv install sentry-sdk
 ```
 - Alterar o settings.py
+
 ```
 SENTRY_DSN = config('SENTRY_DSN', default=None)
 
@@ -1009,18 +1053,23 @@ if SENTRY_DSN:
     traces_sample_rate=1.0,
     send_default_pii=True)
 ```
+
 - Incluir variável no .env
+
 ```
 SENTRY_DSN="url_do_dsn"
 ```
+
 - Adequar o arquivo contrib/env-sample
 <kbd>SENTRY_DSN=</kbd>
 
 - Configurar no heroku
+
 ```
 heroku config:set SENTRY_DSN=<dsn_do_seu_projeto_no_sentry>
+
 ```
----
+
 
 ## Criação dos Arquivos Estáticos através do Bootstrap
 
@@ -1032,7 +1081,84 @@ o nome do diretório para static
 
 <img src="/images/estrutura_01.png" width="100%">
 
-- Inserir a template tag do Django no início do arquivo hoje e adequar os links
+- Inserir a template tag do Django no início do arquivo home e adequar os links
 para os arquivos estáticos conforme imagem abaixo:
 
 <img src="/images/estrutura_02.png" width="100%">
+
+> Se estiver utilizando o layoutit atentar para baixar os arquivos css e js do
+bootstrap na versão 4.2 e substituí-los
+
+## Criação de Função para Testar Conteúdo
+
+- Criar o arquivo django_assertions.py
+- Incluir um novo teste no test_home.py
+
+```
+def test_titulo(client: Client):
+    resp = client.get('/')
+    assert_contains(resp, '<title>Currículos</title>')
+```
+
+## Urls Nomeadas e Encapsulando Urls em Apps
+
+- Adequação do arquivo home.html:
+ - Limpeza do navbar
+ - Adequar a url
+
+ ```<a class="navbar-brand" href="{% url 'base:home' %}">Currículos</a>```
+
+ - Criar dentro da base um módulo chamado urls.py com o conteúdo:
+
+ ```
+ from django.urls import path
+ from curriculos.base.views import home
+
+
+ app_name = 'base'
+ urlpatterns = [
+     path('', home, name='home'),
+ ]
+ ```
+
+
+ - Conteúdo do test_home.py:
+
+ ```
+ from curriculos.django_assertions import assert_contains
+ import pytest
+ from django.urls import reverse
+
+
+ @pytest.fixture
+ def resp(client):
+     resp = client.get(reverse('base:home'))
+     return resp
+
+
+ def test_status_code(resp):
+     assert resp.status_code == 200
+
+
+ def test_titulo(resp):
+     assert_contains(resp, '<title>Currículos</title>')
+
+
+ def test_home_link(resp):
+     assert_contains(resp, f'href="{reverse("base:home")}">Currículos</a>')
+```
+
+- Alterar o trecho do módulo urls global para:
+
+```
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('curriculos.base.urls')),
+]
+
+```
+
+## favicon
+
+- Criar um diretório no pasta static com o nome img
