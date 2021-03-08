@@ -14,7 +14,7 @@ def test_status_code(resp):
 
 
 def test_titulo(resp):
-    assert_contains(resp, '<title>Currículos</title>')
+    assert_contains(resp, '<title>Currículos - Home</title>')
 
 
 def test_home_link(resp):

@@ -1162,3 +1162,11 @@ urlpatterns = [
 ## favicon
 
 - Criar um diretório no pasta static com o nome img
+
+## Herança de templates
+
+- Documentação sobre Herança: https://docs.djangoproject.com/en/3.2/ref/templates/language/#template-inheritance
+
+- Documentação do Django sobre variáveis: https://docs.djangoproject.com/en/3.2/ref/templates/language/#variables
+
+- Documentação oficial sobre o include: https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#include
