@@ -1170,3 +1170,39 @@ urlpatterns = [
 - Documentação do Django sobre variáveis: https://docs.djangoproject.com/en/3.2/ref/templates/language/#variables
 
 - Documentação oficial sobre o include: https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#include
+
+
+## Banco de Dados
+
+- Instalar o  docker para permitir rodar o banco de dados de forma isolada.
+
+> Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+
+```
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+- Criar o arquivo docker-compose.yml
+
+- Para executar o Docker e criar o banco de dados:
+
+```
+$ sudo docker-compose up
+```
+
+- Inserir o .pgdata no .gitignore
+
+- Configurar o acesso da aplicação com o acréscimo da linha abaixo no arquivo .env
+de acordo com as configurações do arquivo docker-compose.yml
+
+```
+DATABASE_URL = postgres://usuario:senha@localhost:PORTA/meubancodedados
+```
+
+- Criar o banco de dados meubancodedados no postgresql
+
+- Dentro do ambiente virtual do pipenv executar o comando:
+
+```
+$ python manage.py migrate
+```
