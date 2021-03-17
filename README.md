@@ -1174,6 +1174,8 @@ urlpatterns = [
 
 ## Banco de Dados
 
+### Banco local
+
 - Instalar o  docker para permitir rodar o banco de dados de forma isolada.
 
 > Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
@@ -1196,7 +1198,7 @@ $ sudo docker-compose up
 de acordo com as configurações do arquivo docker-compose.yml
 
 ```
-DATABASE_URL = postgres://usuario:senha@localhost:PORTA/meubancodedados
+DATABASE_URL=postgres://usuario:senha@localhost:PORTA/meubancodedados
 ```
 
 - Criar o banco de dados meubancodedados no postgresql
@@ -1206,3 +1208,11 @@ DATABASE_URL = postgres://usuario:senha@localhost:PORTA/meubancodedados
 ```
 $ python manage.py migrate
 ```
+
+## Models
+https://docs.djangoproject.com/en/3.2/topics/db/models/
+
+## QuerySets
+https://docs.djangoproject.com/en/3.2/ref/models/querysets/
+
+## Criação do módulo cadastro
