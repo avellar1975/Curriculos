@@ -19,15 +19,3 @@ def test_titulo(resp):
 
 def test_home_link(resp):
     assert_contains(resp, f'href="{reverse("base:home")}">Currículos</a>')
-
-
-def test_consultar_link(resp):
-    assert_contains(resp, f'href="{reverse("base:consultar")}">Consultar</a>')
-
-
-def test_cadastrar_link(resp):
-    assert_contains(resp, f'href="{reverse("base:cadastrar")}">Cadastrar</a>')
-
-
-def test_alterar_link(resp):
-    assert_contains(resp, f'href="{reverse("base:alterar")}">Atualizar</a>')
