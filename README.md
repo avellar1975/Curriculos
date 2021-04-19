@@ -220,7 +220,7 @@ Na opção **Actions** ao lado de *Pull requests* clique na opção *Set up this
 
 Com o arquivo de configuração aberto é possível alterar alguns parâmetros, por exemplo de quanto o CI será iniciado com um pull request na master ou um commit.
 
-![Python package](https://github.com/avellar1975/Curriculos/workflows/Python%20package/badge.svg)
+[![Django CI](https://github.com/avellar1975/Curriculos/actions/workflows/django.yml/badge.svg)](https://github.com/avellar1975/Curriculos/actions/workflows/django.yml)
 
 Para inserir o badge referente à atualização do CI basta copiar o código conforme figura abaixo e colar no arquivo README:
 
