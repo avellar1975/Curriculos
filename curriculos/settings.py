@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+
+
 import os
 from decouple import config, Csv
 from functools import partial
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
 
     # Minhas APPS
     'curriculos.base',
+    'curriculos.cadastro',
 ]
 
 MIDDLEWARE = [
