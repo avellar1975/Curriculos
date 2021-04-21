@@ -1216,3 +1216,5 @@ https://docs.djangoproject.com/en/3.2/topics/db/models/
 https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
 ## Criação do módulo cadastro
+- Para criar testes do Models utilizar a biblioteca model_bakery
+```pipenv install -d model_bakery```

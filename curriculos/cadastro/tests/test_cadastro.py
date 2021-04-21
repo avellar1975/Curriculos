@@ -1,22 +1,21 @@
-"""test_cadastro.py."""
-from curriculos.django_assertions import assert_contains
-import pytest
-from django.urls import reverse
+# Core Django imports
+from django.test import TestCase
+
+# Third-party app imports
+from model_bakery import baker
+
+from curriculos.cadastro.models import Pessoa
 
 
-@pytest.fixture
-def resp(client, db):
-    resp = client.get(reverse('base:home'))
-    return resp
+class CustomerTestModel(TestCase):
+    """
+    Class to test the model Customer
+    """
 
+    def setUp(self):
+        """Set up test class."""
+        self.pessoa = baker.make(Pessoa)
 
-def test_consultar_link(resp):
-    assert_contains(resp, f'href="{reverse("base:consultar")}">Consultar</a>')
-
-
-def test_cadastrar_link(resp):
-    assert_contains(resp, f'href="{reverse("base:cadastrar")}">Cadastrar</a>')
-
-
-def test_alterar_link(resp):
-    assert_contains(resp, f'href="{reverse("base:alterar")}">Atualizar</a>')
+    def test_using_customer(self):
+        """Test function using baked model."""
+        self.assertIsInstance(self.pessoa, Pessoa)
