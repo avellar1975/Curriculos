@@ -6,4 +6,4 @@ class Pessoa(models.Model):
     nome = models.CharField(max_length=60)
     data_nascimento = models.DateField()
     creation = models.DateField(auto_now_add=True)
-    telefone = models.CharField(max_length=20)
+    telefone = models.CharField(max_length=20, default="")
