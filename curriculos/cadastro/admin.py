@@ -1,3 +1,8 @@
-# from django.contrib import admin
+from django.contrib.admin import ModelAdmin, register
+from curriculos.cadastro.models import Pessoa
 
-# Register your models here.
+
+@register(Pessoa)
+class PessoaAdmin(ModelAdmin):
+    list_display = ('nome', 'creation')
+    ordering = ('nome',)
