@@ -8,7 +8,6 @@ class Migration(migrations.Migration):
     dependencies = [
         ('cadastro', '0003_alter_pessoa_telefone'),
     ]
-    
     operations = [
         migrations.AlterField(
             model_name='pessoa',
