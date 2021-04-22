@@ -4,7 +4,7 @@ from curriculos.cadastro.models import Pessoa, Formacao
 
 @register(Pessoa)
 class PessoaAdmin(ModelAdmin):
-    list_display = ('nome', 'creation')
+    list_display = ('nome', 'creation', 'cpf')
     ordering = ('nome',)
 
 

@@ -9,6 +9,7 @@ class Migration(migrations.Migration):
     dependencies = [
         ('cadastro', '0001_initial'),
     ]
+    
 
     operations = [
         migrations.AddField(
