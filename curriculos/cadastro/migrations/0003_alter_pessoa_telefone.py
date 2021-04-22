@@ -8,7 +8,6 @@ class Migration(migrations.Migration):
     dependencies = [
         ('cadastro', '0002_pessoa_formacao'),
     ]
-    
 
     operations = [
         migrations.AlterField(

@@ -21,6 +21,3 @@ class Formacao(models.Model):
 
     def __str__(self):
         return self.nome
-
-
-"""Observação"""
