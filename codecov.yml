@@ -4,3 +4,6 @@ ignore:
   - "curriculos/base/asgi.py"
   - "curriculos/base/admin.py"
   - "curriculos/base/settings.py"
+  - "curriculos/cadastro/migrations/*" # ignore folders and all its contents
+  - "curriculos/cadastro/models.py"
+  - "curriculos/cadastro/admin.py"
